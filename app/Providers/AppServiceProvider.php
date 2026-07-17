@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use App\Interfaces\UserRepositoryInterface;
+use App\Policies\UserPolicy;
 use App\Repositories\UserRepository;
+use App\Models\User;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::policy(User::class, UserPolicy::class);
     }
 }
