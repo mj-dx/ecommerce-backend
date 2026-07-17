@@ -8,6 +8,10 @@ Route::prefix('v1')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+    Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+        Route::get('/admin/users', [\App\Http\Controllers\Api\V1\AdminController::class, 'users']);
+    });
 });
 
 Route::get('/user', function (Request $request) {
