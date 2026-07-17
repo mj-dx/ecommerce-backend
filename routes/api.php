@@ -24,6 +24,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/cart/items', [\App\Http\Controllers\Api\V1\CartController::class, 'addItem']);
         Route::post('/orders', [\App\Http\Controllers\Api\V1\OrderController::class, 'store']);
         Route::post('/payments', [\App\Http\Controllers\Api\V1\PaymentController::class, 'store']);
+        Route::post('/reviews', [\App\Http\Controllers\Api\V1\ReviewController::class, 'store']);
     });
 });
 
