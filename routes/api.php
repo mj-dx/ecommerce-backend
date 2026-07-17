@@ -11,6 +11,7 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware(['auth:sanctum', 'admin'])->group(function () {
         Route::get('/admin/users', [\App\Http\Controllers\Api\V1\AdminController::class, 'users']);
+        Route::get('/admin/dashboard', [\App\Http\Controllers\Api\V1\AdminDashboardController::class, 'statistics']);
     });
 
     Route::middleware('auth:sanctum')->group(function () {
