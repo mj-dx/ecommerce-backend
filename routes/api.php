@@ -23,6 +23,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/inventory/stock', [\App\Http\Controllers\Api\V1\InventoryController::class, 'updateStock']);
         Route::post('/cart/items', [\App\Http\Controllers\Api\V1\CartController::class, 'addItem']);
         Route::post('/orders', [\App\Http\Controllers\Api\V1\OrderController::class, 'store']);
+        Route::post('/payments', [\App\Http\Controllers\Api\V1\PaymentController::class, 'store']);
     });
 });
 
